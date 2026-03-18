@@ -1,10 +1,17 @@
 from kivy.app import App
 from kivy.uix.label import Label
+from kivy.uix.boxlayout import BoxLayout
+from kivy.graphics import Color, Rectangle
 
-class SarathiApp(App):
+class MyApp(App):
     def build(self):
-        # यह आपके ऐप की मुख्य स्क्रीन है
-        return Label(text='🔱 SARATHI MASTER CONTROL ACTIVE 🔱', font_size='30sp')
+        layout = BoxLayout()
+        with layout.canvas:
+            Color(0, 0, 0, 1)  # Set background to black
+            self.rect = Rectangle(size=(300, 300), pos=(0, 0))  # You can adjust size/position as needed
+        label = Label(text='SARATHI SYSTEM ACTIVE', color=(1, 1, 1, 1))  # White text
+        layout.add_widget(label)
+        return layout
 
 if __name__ == '__main__':
-    SarathiApp().run()
+    MyApp().run()
